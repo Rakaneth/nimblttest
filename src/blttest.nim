@@ -6,19 +6,21 @@ import bearlibterminal
 when isMainModule:
   echo("Hello, World!")
 
-discard terminalOpen()
-discard terminalSet("""
-window: size=100x40;
-input.filter=[keyboard,mouse]
-font: assets/UbuntiMono-R.ttf, size=14x14;
-""")
+  discard terminalOpen()
+  discard terminalSet("""
+  window: size=100x40;
+  input.filter=[keyboard,mouse]
+  font: assets/UbuntiMono-R.ttf, size=14x14;
+  """)
 
-terminalRefresh()
+  var x = 0
 
-echo "your string: ", terminalReadString(newBLPoint(0, 0), 4)
+  terminalRefresh()
 
-while terminalRead() != TK_CLOSE:
-  echo terminalCheck(TK_RETURN)
-  discard
+  echo "your string: ", terminalReadString(newBLPoint(0, 0), 10)
 
-terminalClose()
+  while terminalRead() != TK_CLOSE:
+    echo terminalCheck(TK_RETURN)
+    discard
+
+  terminalClose()
